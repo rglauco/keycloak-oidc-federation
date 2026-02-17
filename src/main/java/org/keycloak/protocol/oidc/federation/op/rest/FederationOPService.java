@@ -107,7 +107,9 @@ public class FederationOPService implements ClientRegistrationProvider {
         if(!statement.getIssuer().trim().equals(statement.getSubject().trim())) {
             return Response.status(Response.Status.BAD_REQUEST).entity("The registration request issuer differs from the subject.").build();
         }
-        if(statement.getAudience() == null || statement.getAudience()[0].equals(Urls.realmIssuer(session.getContext().getUri(UrlType.FRONTEND).getBaseUri(), session.getContext().getRealm().getName()))) {
+        final String opEntityId = Urls.realmIssuer(session.getContext().getUri(UrlType.FRONTEND).getBaseUri(),
+            session.getContext().getRealm().getName());
+        if (statement.getAudience() == null || Stream.of(statement.getAudience()).noneMatch(opEntityId::equals)) {
             return Response.status(Response.Status.BAD_REQUEST).entity("Aud must contain OP entity Identifier").build();
         }
 
