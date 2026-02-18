@@ -43,6 +43,9 @@ public class OIDCFedIdentityProviderFactory extends AbstractIdentityProviderFact
 
     public List<ProviderConfigProperty> getConfigProperties() {
         List<ProviderConfigProperty> properties = new ArrayList<>();
+        if (super.getConfigProperties() != null) {
+            properties.addAll(super.getConfigProperties());
+        }
 
         properties.add(buildStringProperty(OIDCFedIdentityProviderConfig.CLIENT_REGISTRATION_TYPES,
             "Registration Type", "OIDC Federation registration type: automatic or explicit."));
