@@ -43,24 +43,21 @@ public class OIDCFedIdentityProviderFactory extends AbstractIdentityProviderFact
 
     public List<ProviderConfigProperty> getConfigProperties() {
         List<ProviderConfigProperty> properties = new ArrayList<>();
-        if (super.getConfigProperties() != null) {
-            properties.addAll(super.getConfigProperties());
-        }
 
         properties.add(buildStringProperty(OIDCFedIdentityProviderConfig.CLIENT_REGISTRATION_TYPES,
-            "Registration Type", "OIDC Federation registration type: automatic or explicit."));
+                "Registration Type", "OIDC Federation registration type: automatic or explicit."));
         properties.add(buildStringProperty(OIDCFedIdentityProviderConfig.ORGANIZATION_NAME,
-            "Organization Name", "Organization name sent in federation metadata."));
+                "Organization Name", "Organization name sent in federation metadata."));
         properties.add(buildStringProperty(OIDCFedIdentityProviderConfig.EXPIRED,
-            "Registration Expiration (epoch)", "Client expiration timestamp in epoch seconds."));
+                "Registration Expiration (epoch)", "Client expiration timestamp in epoch seconds."));
 
         properties.add(buildTextProperty(OIDCFedIdentityProviderConfig.AUTHORITY_HINTS,
-            "Authority Hints", "JSON array of authority hints, e.g. [\"https://ta.example.org\"]"));
+                "Authority Hints", "JSON array of authority hints, e.g. [\"https://ta.example.org\"]"));
         properties.add(buildTextProperty(OIDCFedIdentityProviderConfig.TRUST_ANCHOR_IDS,
-            "Trust Anchor IDs", "JSON array of trust anchors, e.g. [\"https://ta.example.org\"]"));
+                "Trust Anchor IDs", "JSON array of trust anchors, e.g. [\"https://ta.example.org\"]"));
 
         properties.add(buildStringProperty(OIDCFedIdentityProviderConfig.OP_ENTITY_IDENTIFIER,
-            "OP Entity Identifier", "Federation OP entity identifier."));
+                "OP Entity Identifier", "Federation OP entity identifier."));
 
         return properties;
     }
