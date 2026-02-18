@@ -41,7 +41,6 @@ public class OIDCFedIdentityProviderFactory extends AbstractIdentityProviderFact
         return new HashMap<>();
     }
 
-    @Override
     public List<ProviderConfigProperty> getConfigProperties() {
         List<ProviderConfigProperty> properties = new ArrayList<>();
         if (super.getConfigProperties() != null) {
